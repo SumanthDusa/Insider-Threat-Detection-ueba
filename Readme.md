@@ -35,18 +35,27 @@ Unlike traditional security systems, this solution focuses on internal users who
 
 📂 Project Structure
 
-├── api.py  # API server
-├── app.py                  # Flask dashboard
-├── detection_engine.py     # Core detection logic
-├── feature_builder.py      # Feature extraction
-├── rules_engine.py         # Rule-based checks
-├── simulator.py            # Generates user activity
-├── monitor.py              # Sends live data
-├── ueba_dataset.csv        # Training dataset
-├── live_events.csv         # Test/live data
-├── ueba_model.pkl          # Trained ML model
-├── templates/              # HTML files
-└── static/                 # CSS/JS files
+insider threat detection system UEBA/
+├── Dataset/
+│   ├── live_events.csv      # Test/Live data
+│   └── ueba_dataset.csv     # Training Dataset
+├── Server/
+│   ├── api.py               #API Server
+│   ├── detection_engine.py  # Core Detection Logic
+│   ├── feature_builder.py   # Feature Extraction
+│   ├── rules_engine.py      # Rule-based checks
+│   └── train_ueba_model.py  # Training Script
+├── Client/
+│   ├── monitor.py           # Sends live data
+│   └── simulator.py         # Generates user Activity
+├── Dashboard/
+│   ├── app.py               # Flask Dashboard
+│   └── templates/
+│       ├── dashboard.html
+│       ├── index.html
+│       └── login.html
+└── Models/
+    └── ueba_model.pkl       # Trained ML Model
 
 ---
 
