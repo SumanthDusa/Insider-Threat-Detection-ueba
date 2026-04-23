@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>UEBA Dashboard</title>
+<meta http-equiv="refresh" content="5">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container mt-4">
+
+<h2 class="text-danger">🚨 Suspicious Activities</h2>
+
+<div class="alert alert-danger">
+⚠ High-risk insider activity detected!
+</div>
+
+<!-- TABLE -->
+<div>
+    {{ table|safe }}
+</div>
+
+<hr>
+
+<h3>👤 User Risk</h3>
+<canvas id="userChart"></canvas>
+
+<hr>
+
+<h3>📈 Risk Over Time</h3>
+<canvas id="timeChart"></canvas>
+
+<script>
+    // ✅ FIXED
+    const users = {{ users | tojson }};
+    const times = {{ times | tojson }};
+
+    // 👤 USER GRAPH
+    new Chart(document.getElementById('userChart'), {
+        type: 'bar',
+        data: {
+            labels: users.map(u => u.user),
+            datasets: [{
+                label: "User Risk",
+                data: users.map(u => u.risk)
+            }]
+        }
+    });
+
+    // 📈 TIME GRAPH
+    new Chart(document.getElementById('timeChart'), {
+        type: 'line',
+        data: {
+            labels: times.map(t => t.time),
+            datasets: [{
+                label: "Risk Over Time",
+                data: times.map(t => t.risk)
+            }]
+        }
+    });
+</script>
+
+</body>
+</html>
