@@ -35,7 +35,7 @@ Unlike traditional security systems, this solution focuses on internal users who
 
 📂 Project Structure
 
-├── api.py                  # API server
+├── api.py  # API server
 ├── app.py                  # Flask dashboard
 ├── detection_engine.py     # Core detection logic
 ├── feature_builder.py      # Feature extraction
